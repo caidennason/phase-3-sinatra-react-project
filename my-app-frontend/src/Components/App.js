@@ -9,6 +9,10 @@ function App() {
 
   const [submittedSongs, setSubmittedSongs] = useState([])
 
+  function addToPage(newSong){
+    setSubmittedSongs([...submittedSongs, newSong])
+  }
+
   
   return (
   <>
@@ -20,7 +24,7 @@ function App() {
       <Card.Img src={"https://i0.wp.com/liveforlivemusic.com/wp-content/uploads/2016/09/abbeyroadpic-e1569437054348.jpg?zoom=2&resize=740%2C390&ssl=1"}/>
     </Card>
 
-    <SubmissionForm />
+    <SubmissionForm submittedSongs={submittedSongs} setSubmittedSongs={setSubmittedSongs} addToPage={addToPage}/>
     
   </>
   );

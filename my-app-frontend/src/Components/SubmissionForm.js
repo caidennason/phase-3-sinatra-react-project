@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import SubmittedSongs from './SubmittedSongs'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-function SubmissionForm(){
+function SubmissionForm({setSubmittedSongs, submittedSongs, addToPage}){
     const [songName, setSongName] = useState("Song Name")
     const [albumName, setAlbumName] = useState("Album Name")
     const [songwriterName, setSongwriterName] = useState("Songwriter Name")
@@ -36,11 +37,13 @@ function SubmissionForm(){
             songwriter: songwriterName,
             songRating: rating
         }
-        console.log(formData)
+        //setSubmittedSongs(formData)
+        addToPage(formData)
+        console.log(submittedSongs)
     }
 
     return (
-        <div style={{backgroundColor:'peachpuff'}}>
+        <div>
         <Form onSubmit={handleSongSubmit}>
             <input onChange={handleSongChange} type="text" value={songName}/>
             <input onChange={handleAlbumChange} type="text" value={albumName}/>
@@ -48,6 +51,8 @@ function SubmissionForm(){
             <input onChange={handleRatingChange} type="text" value={rating}/>
             <Button type='submit'>Submit</Button>
         </Form>
+
+        <SubmittedSongs submittedSongs={submittedSongs}/>
 
         </div>
     )
