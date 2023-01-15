@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 function SubmissionForm(){
     const [songName, setSongName] = useState("Song Name")
     const [albumName, setAlbumName] = useState("Album Name")
-    const [songwriterName, setSongwriterName] = useState("Songriter Name")
+    const [songwriterName, setSongwriterName] = useState("Songwriter Name")
     const [rating, setRating] = useState("List a Rating from 1-10")
 
     function handleSongChange(e){
