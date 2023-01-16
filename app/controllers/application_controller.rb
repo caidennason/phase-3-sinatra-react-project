@@ -1,16 +1,24 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
-  get "/" do
-    { message: "hi" }.to_json
+  # # Add your routes here
+  # get "/" do
+  #   { message: "hi" }.to_json
+  # end
+
+  get '/songwriters' do 
+    songwriter = Songwriter.all
+    songwriter.to_json(include: { songs: {include: :reviews}})
   end
 
-  get '/reviews' do
-    # get all the games from the database
-    review = Review.all
-    # return a JSON response with an array of all the game data
-    review.to_json
+  get '/albums' do 
+    album = Album.all 
+    album.to_json 
+  end
+
+  get '/reviews' do 
+    review = Review.all 
+    review.to_json 
   end
 
 end

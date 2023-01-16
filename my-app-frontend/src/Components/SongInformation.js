@@ -1,7 +1,7 @@
 import React from "react"
 import Card from 'react-bootstrap/Card'
 
-function SongInformation({name, album, writer, rating}){
+function SongInformation({name, album, writer, review}){
 
 
     return(
@@ -10,7 +10,7 @@ function SongInformation({name, album, writer, rating}){
             <Card.Title>{name}</Card.Title>
             <Card.Text>{album}</Card.Text>
             <Card.Text>{writer}</Card.Text>
-            <Card.Text>{rating}</Card.Text>
+            <Card.Text>{review}</Card.Text>
         </Card>
         <br></br>
         </>
